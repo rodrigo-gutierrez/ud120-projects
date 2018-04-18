@@ -10,10 +10,12 @@
     Chris has label 1
 """
     
-import sys
+import sys, os
 from time import time
-sys.path.append("../tools/")
-from tools.email_preprocess import preprocess
+
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tools'))
+
+from email_preprocess import preprocess
 
 
 ### features_train and features_test are the features for the training
