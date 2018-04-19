@@ -21,13 +21,20 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
+from sklearn.naive_bayes import GaussianNB
 
+clf = GaussianNB()
 
+print "Training start"
+timer = time()
+clf.fit(features_train, labels_train)
+print "Training time: ", round(time() - timer, 3), "s"
 
-#########################################################
-### your code goes here ###
+print "Predicting start"
+timer = time()
+clf.predict(features_test)
+print "Predicting time: ", round(time() - timer, 3), "s"
 
+accuracy = clf.score(features_test, labels_test)
 
-#########################################################
-
-
+print accuracy
